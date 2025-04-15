@@ -34,7 +34,7 @@
 
 ```🔵 **lua**
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tonpseudo/aimbot/main/aimbot.lua"))()
----
+```
 
 ## 🚀 How It Works
 
