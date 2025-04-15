@@ -1,6 +1,7 @@
 -- CONFIGURATION
-local AimbotKey = Enum.KeyCode.E -- Touche d'activation
+local AimbotKey = Enum.KeyCode.E -- Touche toggle aimbot
 local AimbotEnabled = false
+local ESPEnabled = true
 
 -- SERVICES
 local Players = game:GetService("Players")
@@ -9,7 +10,7 @@ local UserInputService = game:GetService("UserInputService")
 local Camera = workspace.CurrentCamera
 local LocalPlayer = Players.LocalPlayer
 
--- TOGGLE AVEC E
+-- TOGGLE AIMBOT AVEC E
 UserInputService.InputBegan:Connect(function(input, processed)
     if not processed and input.KeyCode == AimbotKey then
         AimbotEnabled = not AimbotEnabled
@@ -17,7 +18,7 @@ UserInputService.InputBegan:Connect(function(input, processed)
     end
 end)
 
--- FONCTION POUR TROUVER LA CIBLE LA PLUS PROCHE DU CURSEUR
+-- TROUVER JOUEUR LE PLUS PROCHE DU CURSEUR
 local function getClosestTarget()
     local mouseLocation = UserInputService:GetMouseLocation()
     local closestPlayer = nil
@@ -43,7 +44,7 @@ local function getClosestTarget()
     return closestPlayer
 end
 
--- EXECUTION DE L'AIMBOT
+-- AIMBOT EXECUTION
 RunService.RenderStepped:Connect(function()
     if AimbotEnabled then
         local target = getClosestTarget()
@@ -55,4 +56,76 @@ RunService.RenderStepped:Connect(function()
     end
 end)
 
-print("[✔] Script Aimbot prêt. Appuie sur 'E' pour activer/désactiver.")
+-- ========== ESP SYSTEM ========== --
+local function createESP(player)
+    local box = Drawing.new("Square")
+    local nameTag = Drawing.new("Text")
+
+    -- Paramètres visuels
+    box.Thickness = 1
+    box.Filled = false
+    box.Color = Color3.fromRGB(255, 0, 0)
+    box.Transparency = 1
+    box.Visible = false
+
+    nameTag.Color = Color3.new(1, 1, 1)
+    nameTag.Size = 13
+    nameTag.Outline = true
+    nameTag.Center = true
+    nameTag.Visible = false
+
+    RunService.RenderStepped:Connect(function()
+        if ESPEnabled and player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player.Character:FindFirstChild("Head") then
+            local hrp = player.Character.HumanoidRootPart
+            local head = player.Character.Head
+            local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+
+            if humanoid and humanoid.Health > 0 then
+                local pos, onScreen = Camera:WorldToViewportPoint(hrp.Position)
+
+                if onScreen then
+                    -- Calcul taille boîte
+                    local height = (Camera:WorldToViewportPoint(hrp.Position + Vector3.new(0, 3, 0)).Y -
+                                    Camera:WorldToViewportPoint(hrp.Position - Vector3.new(0, 2.5, 0)).Y)
+                    local width = height / 2
+
+                    box.Size = Vector2.new(width, height)
+                    box.Position = Vector2.new(pos.X - width / 2, pos.Y - height / 2)
+                    box.Visible = true
+
+                    nameTag.Position = Vector2.new(pos.X, pos.Y - height / 2 - 14)
+                    nameTag.Text = player.Name
+                    nameTag.Visible = true
+                else
+                    box.Visible = false
+                    nameTag.Visible = false
+                end
+            else
+                box.Visible = false
+                nameTag.Visible = false
+            end
+        else
+            box.Visible = false
+            nameTag.Visible = false
+        end
+    end)
+end
+
+-- Initialiser ESP pour tous les joueurs
+for _, player in pairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer then
+        createESP(player)
+    end
+end
+
+-- ESP pour les nouveaux joueurs
+Players.PlayerAdded:Connect(function(player)
+    if player ~= LocalPlayer then
+        player.CharacterAdded:Connect(function()
+            wait(1) -- Petit délai pour que le perso soit chargé
+            createESP(player)
+        end)
+    end
+end)
+
+print("[✔] Aimbot instant + ESP activé. Appuie sur 'E' pour activer/désactiver le lock.")
