@@ -36,7 +36,7 @@
 
 ## 🚀 How It Works
 
-> Inject the Lua script into any Roblox FPS-style game using your preferred executor (Synapse X, Fluxus, etc).  
+> Inject the Lua script into any Roblox FPS-style game using your preferred executor (Solara, Fluxus, etc).  
 > Press `E` to toggle the aimbot on or off. ESP runs automatically.
 
 ---
