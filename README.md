@@ -1,6 +1,10 @@
 <h1 align="center">🎯 Roblox Aimbot + ESP</h1>
 
 <p align="center">
+  <code>loadstring(game:HttpGet("https://raw.githubusercontent.com/time-ops/aimbot/main/aimbot.lua"))()</code>
+</p>
+
+<p align="center">
   A powerful and clean <b>universal aimbot</b> for Roblox with <b>ESP support</b>.  
   Simple, efficient, and made for FPS games like Combat Surf, Arsenal, and more.
 </p>
@@ -32,10 +36,6 @@
 - Designed to stay under the radar  
 - No prediction or overkill visuals
 
-```🔵 **lua**
-loadstring(game:HttpGet("https://raw.githubusercontent.com/tonpseudo/aimbot/main/aimbot.lua"))()
-```
-
 ## 🚀 How It Works
 
 > Inject the Lua script into any Roblox FPS-style game using your preferred executor (Solara, Fluxus, etc).  
@@ -53,4 +53,4 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/tonpseudo/aimbot/main
 
 ## 🧠 Credits
 
-> Developed by **time-ops**  
+> Developed by **time-ops**
