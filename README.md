@@ -1,7 +1,7 @@
 <h1 align="center">🎯 Roblox Aimbot + ESP</h1>
 
 <p align="center">
-  <code>loadstring(game:HttpGet("https://raw.githubusercontent.com/time-ops/aimbot/main/aimbot.lua"))()</code>
+  <code>loadstring(game:HttpGet("https://raw.githubusercontent.com/time-ops/aimbot/main/scritp.lua"))()</code>
 </p>
 
 <p align="center">
