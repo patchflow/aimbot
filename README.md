@@ -1,4 +1,4 @@
-# 🎯 Roblox Aimbot + ESP
+<h1 align="center">🎯 Roblox Aimbot + ESP</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Working-brightgreen?style=for-the-badge">
@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  🎮 A lightweight, universal **aimbot with ESP** built for Roblox FPS games.  
+  🎮 A lightweight, universal <strong>aimbot with ESP</strong> built for Roblox FPS games.  
   Clean visuals, easy to use, and designed to stay stable across most supported executors.
 </p>
 
