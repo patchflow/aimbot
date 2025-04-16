@@ -59,9 +59,8 @@
 
 ## 🧠 Credits
 
-- 👨‍💻 Developed by [time-ops](https://github.com/time-ops)  
-- 🛠️ Based on custom lightweight Lua logic  
-- ❤️ Built for fun and learning
+- 👨‍💻 Developed by [time-ops](https://github.com/time-ops)    
+- ❤️ Made with love
 
 ---
 
