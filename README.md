@@ -1,4 +1,4 @@
-<h1 align="center">🎯 Roblox Aimbot + ESP</h1>
+ 🎯 Roblox Aimbot + ESP
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Working-brightgreen?style=for-the-badge">
@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  🎮 A lightweight, universal <strong>aimbot with ESP</strong> built for Roblox FPS games.  
+  🎮 A lightweight, universal **aimbot with ESP** built for Roblox FPS games.  
   Clean visuals, easy to use, and designed to stay stable across most supported executors.
 </p>
 
@@ -34,15 +34,19 @@
 - 🔄 Updates automatically when players join or leave
 - 👀 Elements hide when out of field of view (no clutter)
 
+### ⚡ Anti-Cheat Detection
+- 🔒 The cheat is **undetectable** by most anti-cheat systems.
+- ⚠️ In rare cases, it may be detected, but most games run without issues.
+
 ---
 
 ## 🚀 How to Use
 
-> 💉 Inject the script using your favorite Roblox executor:
-- ✅ JJSploit  
-- ✅ KRNL  
-- ✅ Solara  
-- ✅ Xeno  
+> 💉 Inject the script using your favorite Roblox executor:  
+> - ✅ JJSploit  
+> - ✅ KRNL  
+> - ✅ Solara  
+> - ✅ Xeno  
 
 > 🕹️ Once injected, just press <kbd>E</kbd> to activate/deactivate the aimbot.  
 > 🧿 ESP is always running automatically in the background.
@@ -67,4 +71,3 @@
 <p align="center">
   👾 Suggestions, bugs, or improvements? Feel free to open an issue or pull request.
 </p>
-
