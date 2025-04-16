@@ -14,7 +14,6 @@ local LocalPlayer = Players.LocalPlayer
 UserInputService.InputBegan:Connect(function(input, processed)
     if not processed and input.KeyCode == AimbotKey then
         AimbotEnabled = not AimbotEnabled
-        -- Retirer le print pour rendre le script plus discret
     end
 end)
 
@@ -118,8 +117,8 @@ local function createESP(player)
                     distanceTag.Visible = true
 
                     -- Lignes
-                    tracerLine.From = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y) -- bas de l’écran
-                    tracerLine.To = Vector2.new(pos.X, pos.Y + height / 2) -- vers bas du joueur
+                    tracerLine.From = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y)
+                    tracerLine.To = Vector2.new(pos.X, pos.Y + height / 2)
                     tracerLine.Visible = true
                 else
                     box.Visible = false
