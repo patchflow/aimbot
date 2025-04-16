@@ -59,8 +59,6 @@ end)
 local function createESP(player)
     local box = Drawing.new("Square")
     local nameTag = Drawing.new("Text")
-    local distanceTag = Drawing.new("Text")
-    local tracerLine = Drawing.new("Line")
 
     -- Paramètres visuels
     box.Thickness = 1
@@ -75,17 +73,6 @@ local function createESP(player)
     nameTag.Center = true
     nameTag.Visible = false
 
-    distanceTag.Color = Color3.new(0, 1, 0)
-    distanceTag.Size = 12
-    distanceTag.Outline = true
-    distanceTag.Center = true
-    distanceTag.Visible = false
-
-    tracerLine.Color = Color3.fromRGB(255, 255, 0)
-    tracerLine.Thickness = 1.5
-    tracerLine.Transparency = 1
-    tracerLine.Visible = false
-
     RunService.Heartbeat:Connect(function()
         if ESPEnabled and player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player.Character:FindFirstChild("Head") then
             local hrp = player.Character.HumanoidRootPart
@@ -99,7 +86,6 @@ local function createESP(player)
                     local height = (Camera:WorldToViewportPoint(hrp.Position + Vector3.new(0, 3, 0)).Y -
                                     Camera:WorldToViewportPoint(hrp.Position - Vector3.new(0, 2.5, 0)).Y)
                     local width = height / 2
-                    local distance = math.floor((Camera.CFrame.Position - hrp.Position).Magnitude)
 
                     -- Boîte
                     box.Size = Vector2.new(width, height)
@@ -110,33 +96,17 @@ local function createESP(player)
                     nameTag.Position = Vector2.new(pos.X, pos.Y - height / 2 - 14)
                     nameTag.Text = player.Name
                     nameTag.Visible = true
-
-                    -- Distance
-                    distanceTag.Position = Vector2.new(pos.X, pos.Y + height / 2 + 2)
-                    distanceTag.Text = tostring(distance) .. " m"
-                    distanceTag.Visible = true
-
-                    -- Lignes
-                    tracerLine.From = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y)
-                    tracerLine.To = Vector2.new(pos.X, pos.Y + height / 2)
-                    tracerLine.Visible = true
                 else
                     box.Visible = false
                     nameTag.Visible = false
-                    distanceTag.Visible = false
-                    tracerLine.Visible = false
                 end
             else
                 box.Visible = false
                 nameTag.Visible = false
-                distanceTag.Visible = false
-                tracerLine.Visible = false
             end
         else
             box.Visible = false
             nameTag.Visible = false
-            distanceTag.Visible = false
-            tracerLine.Visible = false
         end
     end)
 end
