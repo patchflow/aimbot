@@ -1,5 +1,5 @@
 -- CONFIGURATION
-local AimbotKey = Enum.KeyCode.E -- Touche toggle aimbot
+local AimbotKey = Enum.KeyCode.E
 local AimbotEnabled = false
 local ESPEnabled = true
 
@@ -18,7 +18,7 @@ UserInputService.InputBegan:Connect(function(input, processed)
     end
 end)
 
--- TROUVER JOUEUR LE PLUS PROCHE DU CURSEUR
+-- TROUVER CIBLE LA PLUS PROCHE DU CURSEUR
 local function getClosestTarget()
     local mouseLocation = UserInputService:GetMouseLocation()
     local closestPlayer = nil
@@ -45,7 +45,7 @@ local function getClosestTarget()
 end
 
 -- AIMBOT EXECUTION
-RunService.RenderStepped:Connect(function()
+RunService.Heartbeat:Connect(function()
     if AimbotEnabled then
         local target = getClosestTarget()
 
@@ -60,6 +60,8 @@ end)
 local function createESP(player)
     local box = Drawing.new("Square")
     local nameTag = Drawing.new("Text")
+    local distanceTag = Drawing.new("Text")
+    local tracerLine = Drawing.new("Line")
 
     -- Paramètres visuels
     box.Thickness = 1
@@ -74,8 +76,19 @@ local function createESP(player)
     nameTag.Center = true
     nameTag.Visible = false
 
-    RunService.RenderStepped:Connect(function()
-        if ESPEnabled and player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player.Character:FindFirstChild("Head") then
+    distanceTag.Color = Color3.new(0, 1, 0)
+    distanceTag.Size = 12
+    distanceTag.Outline = true
+    distanceTag.Center = true
+    distanceTag.Visible = false
+
+    tracerLine.Color = Color3.fromRGB(255, 255, 0)
+    tracerLine.Thickness = 1.5
+    tracerLine.Transparency = 1
+    tracerLine.Visible = false
+
+    RunService.Heartbeat:Connect(function()
+        if ESPEnabled and player.Character and player.Character:FindFirstChild("HumanoidRootPart") and player.Character:FindFirstChild("Head") then
             local hrp = player.Character.HumanoidRootPart
             local head = player.Character.Head
             local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
@@ -84,29 +97,47 @@ local function createESP(player)
                 local pos, onScreen = Camera:WorldToViewportPoint(hrp.Position)
 
                 if onScreen then
-                    -- Calcul taille boîte
                     local height = (Camera:WorldToViewportPoint(hrp.Position + Vector3.new(0, 3, 0)).Y -
                                     Camera:WorldToViewportPoint(hrp.Position - Vector3.new(0, 2.5, 0)).Y)
                     local width = height / 2
+                    local distance = math.floor((Camera.CFrame.Position - hrp.Position).Magnitude)
 
+                    -- Boîte
                     box.Size = Vector2.new(width, height)
                     box.Position = Vector2.new(pos.X - width / 2, pos.Y - height / 2)
                     box.Visible = true
 
+                    -- Nom
                     nameTag.Position = Vector2.new(pos.X, pos.Y - height / 2 - 14)
                     nameTag.Text = player.Name
                     nameTag.Visible = true
+
+                    -- Distance
+                    distanceTag.Position = Vector2.new(pos.X, pos.Y + height / 2 + 2)
+                    distanceTag.Text = tostring(distance) .. " m"
+                    distanceTag.Visible = true
+
+                    -- Lignes
+                    tracerLine.From = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y) -- bas de l’écran
+                    tracerLine.To = Vector2.new(pos.X, pos.Y + height / 2) -- vers bas du joueur
+                    tracerLine.Visible = true
                 else
                     box.Visible = false
                     nameTag.Visible = false
+                    distanceTag.Visible = false
+                    tracerLine.Visible = false
                 end
             else
                 box.Visible = false
                 nameTag.Visible = false
+                distanceTag.Visible = false
+                tracerLine.Visible = false
             end
         else
             box.Visible = false
             nameTag.Visible = false
+            distanceTag.Visible = false
+            tracerLine.Visible = false
         end
     end)
 end
@@ -122,10 +153,10 @@ end
 Players.PlayerAdded:Connect(function(player)
     if player ~= LocalPlayer then
         player.CharacterAdded:Connect(function()
-            wait(1) -- Petit délai pour que le perso soit chargé
+            wait(1)
             createESP(player)
         end)
     end
 end)
 
-print("[✔] Aimbot instant + ESP activé. Appuie sur 'E' pour activer/désactiver le lock.")
+print("[✔] Aimbot instant + ESP + Lignes activé. Appuie sur 'E' pour activer/désactiver le lock.")
