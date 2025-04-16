@@ -14,7 +14,7 @@ local LocalPlayer = Players.LocalPlayer
 UserInputService.InputBegan:Connect(function(input, processed)
     if not processed and input.KeyCode == AimbotKey then
         AimbotEnabled = not AimbotEnabled
-        print("[AIMBOT] " .. (AimbotEnabled and "✅ Activé" or "❌ Désactivé"))
+        -- Retirer le print pour rendre le script plus discret
     end
 end)
 
@@ -158,5 +158,3 @@ Players.PlayerAdded:Connect(function(player)
         end)
     end
 end)
-
-print("[✔] Aimbot instant + ESP + Lignes activé. Appuie sur 'E' pour activer/désactiver le lock.")
