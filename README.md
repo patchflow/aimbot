@@ -3,14 +3,14 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Working-brightgreen?style=for-the-badge">
   <img src="https://img.shields.io/badge/Aimbot-Instant-red?style=for-the-badge">
-  <img src="https://img.shields.io/badge/ESP-Enabled-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/ESP-Active-blue?style=for-the-badge">
   <img src="https://img.shields.io/badge/Optimized-Yes-ff69b4?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Roblox-Compatible-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Executor-JJSploit_|_KRNL_|_Solara_|_Xeno-lightgrey?style=for-the-badge">
 </p>
 
 <p align="center">
-  🔫 <b>Clean, Universal & Powerful Aimbot</b> for FPS Roblox games with smart ESP visuals.<br>
-  🛠️ Built for performance and precision in games like Arsenal, Combat Warriors, Surf, and more.
+  🎮 A lightweight, universal <strong>aimbot with ESP</strong> built for Roblox FPS games.  
+  Clean visuals, easy to use, and designed to stay stable across most supported executors.
 </p>
 
 <p align="center">
@@ -21,46 +21,51 @@
 
 ## ✨ Features
 
-### 🎯 Aimbot (Toggle: <kbd>E</kbd>)
-- 🔒 Instant lock-on to enemy's **Head**
-- 🎮 Works seamlessly in most FPS-style Roblox games
-- ⚡ Extremely fast and smooth – no delay
-- 🧠 Cursor-based proximity detection
-- ☁️ Silent & undetectable (no GUI, no clutter)
+### 🎯 Aimbot (Press <kbd>E</kbd> to toggle)
+- 🎯 Instant aim lock to the **enemy's head**
+- 🎮 Works on most FPS-type games (Arsenal, Combat Warriors, Surf, etc.)
+- 🔁 Cursor-based proximity detection (auto aim on closest to cursor)
+- 🔇 Silent and clean — no GUI or popups
 
-### 🧿 ESP (Always On)
-- 🟥 **Bounding Boxes** for visible players
-- 🏷️ Name & 💬 Distance display
-- 🔭 Clean, responsive visuals (no flicker)
-- 📌 **Tracer Lines** from screen center to enemy
-- 🔁 Auto-refresh for new players
-
-### ⚙️ Optimized for Performance
-- 🔋 Ultra-lightweight (uses `Heartbeat` instead of `RenderStepped`)
-- 🔐 No obfuscation, 100% readable and clean Lua
-- 🔎 Zero UI — everything runs in the background
-- 👻 Designed to avoid detection and lag
+### 👁 ESP (Always On)
+- 🟥 Bounding boxes around players
+- 🏷️ Shows player names and distances
+- 📍 Line tracers from center screen to enemy
+- 🔄 Updates automatically when players join or leave
+- 👀 Elements hide when out of field of view (no clutter)
 
 ---
 
-## 🚀 Usage
+## 🚀 How to Use
 
-> 🧪 Use with any Roblox executor like **Fluxus**, **KRNL**, **Electron**, or **Trigon**.  
-> ⌨️ Press <kbd>E</kbd> to toggle the aimbot. ESP runs automatically.
+> 💉 Inject the script using your favorite Roblox executor:
+- ✅ JJSploit  
+- ✅ KRNL  
+- ✅ Solara  
+- ✅ Xeno  
+
+> 🕹️ Once injected, just press <kbd>E</kbd> to activate/deactivate the aimbot.  
+> 🧿 ESP is always running automatically in the background.
 
 ---
 
 ## ⚠️ Disclaimer
 
 > This script is provided for **educational purposes only**.  
-> I do not encourage cheating or abusing Roblox systems.  
-> Use this script at **your own risk**. I am **not responsible** for any bans or consequences.
+> We do **not support misuse, cheating, or exploiting** on Roblox.  
+> Use this script **at your own risk**. Bans may occur if abused.
 
 ---
 
 ## 🧠 Credits
 
-- 👨‍💻 Developed by [time-ops](https://github.com/time-ops)
-- 💡 Inspired by community work on universal ESP systems
-- ❤️ Built with love for FPS enthusiasts
+- 👨‍💻 Developed by [time-ops](https://github.com/time-ops)  
+- 🛠️ Based on custom lightweight Lua logic  
+- ❤️ Built for fun and learning
+
+---
+
+<p align="center">
+  👾 Suggestions, bugs, or improvements? Feel free to open an issue or pull request.
+</p>
 
