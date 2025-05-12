@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <code>loadstring(game:HttpGet("https://raw.githubusercontent.com/time-ops/aimbot/main/scritp.lua"))()</code>
+  <code>loadstring(game:HttpGet("https://raw.githubusercontent.com/patchflow/aimbot/main/scritp.lua"))()</code>
 </p>
 
 ---
