@@ -63,7 +63,7 @@
 
 ## 🧠 Credits
 
-- 👨‍💻 Developed by [time-ops](https://github.com/time-ops)    
+- 👨‍💻 Developed by [patchflow](https://github.com/patchflow)    
 - ❤️ Made with love
 
 ---
